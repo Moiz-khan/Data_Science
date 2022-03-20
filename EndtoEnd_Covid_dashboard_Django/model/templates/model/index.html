@@ -1,0 +1,471 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Dashboard</title>
+    <style>
+        .model {
+            margin-left: 40px;
+        }
+        
+        .modelsbtn {
+            margin-top: 20px;
+        }
+        
+        .card-group {
+            height: 450px;
+            width: 1350px;
+            /* box-shadow: 1px 1px 17px #ccc; */
+            background-color: rgba(7, 7, 7, 0.911);
+        }
+        
+        .card1 {
+            border-radius: 20%;
+            width: 250px;
+            height: 250px;
+            margin-top: 7%;
+            margin-left: 15px;
+            /* margin-right: 30px; */
+            background-color: lightblue;
+            border-bottom: 3px solid #009639;
+        }
+        
+        .card2 {
+            width: 250px;
+            height: 250px;
+            margin-top: 7%;
+            margin-left: 5px;
+            /* margin-right: 30px; */
+            background-color: lightpink;
+            border-radius: 20%;
+            border-bottom: 3px solid #009639;
+        }
+        
+        .card3 {
+            width: 250px;
+            height: 250px;
+            margin-top: 7%;
+            margin-left: 5px;
+            background-color: lightgreen;
+            border-radius: 20%;
+            color: green;
+            border-bottom: 3px solid #009639;
+        }
+        
+        .barchart {
+            width: 550px;
+            height: 300px;
+            margin-top: 5%;
+            /* margin-left: 2px; */
+            /* background-color: rgb(22, 22, 22); */
+            /* border-radius: 60%; */
+            color: rgb(125, 134, 125);
+            /* border-bottom: 3px solid #009639; */
+        }
+        
+        .province {
+            height: 500px;
+            width: 1350px;
+            /* margin-top: 30px; */
+            /* margin-left: 50px; */
+            background-color: white;
+            /* box-shadow: 1px 1px 17px #ccc; */
+        }
+        
+        .ISB {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            margin-top: 5%;
+            margin-left: 13%;
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .sindh {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            margin-top: 5%;
+            /* margin-left: 15px; */
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .GB {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            margin-top: 5%;
+            /* margin-left: 15px; */
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .Bal {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            margin-top: 5%;
+            /* margin-left: 15px; */
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .punjab {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            margin-top: 5%;
+            /* margin-left: 15px; */
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .KPK {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            /* margin-top: 5%; */
+            /* margin-top: 5%; */
+            margin-left: 28%;
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .kashmir {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            /* margin-top: 5%; */
+            /* margin-left: 15px; */
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .Trib-area {
+            border-radius: 10%;
+            width: 170px;
+            height: 150px;
+            /* margin-top: 5%; */
+            /* margin-left: 15px; */
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px #ccc;
+            background-color: lightblue;
+        }
+        
+        .prov-cases {
+            border-radius: 7%;
+            width: 1100px;
+            height: 450px;
+            /* margin-top: 30px; */
+            margin-left: 10%;
+            margin-right: 30px;
+            box-shadow: 1px 1px 25px rgb(214, 226, 181);
+            background-color: white;
+        }
+        
+        .prov {
+            background-color: rgba(7, 7, 7, 0.911);
+            box-shadow: 1px 1px 17px rgba(118, 30, 129, 0.521);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Covid Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+    <h2>
+        <center>Pakistan Covid - 19 </center>
+
+    </h2>
+    <hr>
+
+
+    <div class="card-group">
+
+        <div class="card1 w3-card">
+            <div class="card-body">
+                <h3 class="card-title">Covid Cases</h3>
+                <hr>
+                <h4>Cases: {{params.0}} </h4>
+                <img align="right" src="{% static 'model/images/Deaths.png' %}" width=100px, height=100px>
+
+            </div>
+        </div>
+
+        <div class="card2">
+            <div class="card-body">
+                <h3 class="card-title">Covid Deaths</h3>
+                <hr>
+                <h4>Deaths: {{params.1}} </h4>
+                <img align="right" src="{% static 'model/images/Heart.png' %}" width=100px, height=100px>
+
+            </div>
+        </div>
+
+        <div class="card3">
+            <div class="card-body">
+                <h3 class="card-title">Recovered Cases</h3>
+                <hr>
+                <h4>Recovered: {{params.2}} </h4>
+                <img align="right" src="{% static 'model/images/Recv.png' %}" width=100px, height=100px>
+
+            </div>
+        </div>
+
+        <div class="barchart w3-card">
+            <div class="card-body">
+
+                <img src="{% static 'model/images/pie.png' %}" width=550px, height=280px>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <h2 align="center">Province Cases Report</h2>
+
+    <!-- Province wise Cases -->
+    <div class='province card-group'>
+        <!-- <h2 align="center">cc</h2> -->
+
+        <div class="ISB">
+            <div class="card-body">
+                <h6 class="card-title ">Islamabad</h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.0}} </h7>
+                <h7>Recovered: {{prov_info.1.0}} </h7>
+                <h7>Deaths: {{prov_info.2.0}} </h7>
+
+            </div>
+        </div>
+
+        <div class="sindh ">
+            <div class="card-body ">
+                <h6 class="card-title ">Sindh</h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.1}} </h7>
+                <h7>Recovered: {{prov_info.1.1}} </h7>
+                <h7>Deaths: {{prov_info.2.1}} </h7>
+
+            </div>
+        </div>
+
+        <div class="punjab ">
+            <div class="card-body ">
+                <h6 class="card-title ">Punjab</h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.4}} </h7>
+                <h7>Recovered: {{prov_info.1.4}} </h7>
+                <h7>Deaths: {{prov_info.2.4}} </h7>
+
+            </div>
+        </div>
+
+        <div class="GB ">
+            <div class="card-body ">
+                <h6 class="card-title ">
+                    Gilgit-Baltistan
+                </h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.2}} </h7>
+                <h7>Recovered: {{prov_info.1.2}} </h7>
+                <h7>Deaths: {{prov_info.2.2}} </h7>
+
+            </div>
+        </div>
+
+        <div class="Bal ">
+            <div class="card-body ">
+                <h6 class="card-title ">Baluchistan</h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.3}} </h7>
+                <h7>Recovered: {{prov_info.1.3}} </h7>
+                <h7>Deaths: {{prov_info.2.3}} </h7>
+
+            </div>
+        </div>
+
+
+
+        <div class="KPK ">
+            <div class="card-body ">
+                <h6 class="card-title ">KPK</h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.5}} </h7>
+                <h7>Recovered: {{prov_info.1.5}} </h7>
+                <h7>Deaths: {{prov_info.2.5}} </h7>
+
+            </div>
+        </div>
+
+        <div class="kashmir ">
+            <div class="card-body ">
+                <h6 class="card-title ">Kashmir</h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.6}} </h7>
+                <h7>Recovered: {{prov_info.1.6}} </h7>
+                <h7>Deaths: {{prov_info.2.6}} </h7>
+
+            </div>
+        </div>
+
+        <div class="Trib-area ">
+            <div class="card-body ">
+                <h6 class="card-title ">Tribal Areas</h6>
+                <hr>
+                <h7>Cases: {{prov_info.0.7}} </h7>
+                <h7>Recovered: {{prov_info.1.7}} </h7>
+                <h7>Deaths: {{prov_info.2.7}} </h7>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="prov ">
+        <br>
+        <h2 align="center " style="color:white ">Province-wise Cases</h2>
+
+        <div class="card prov-cases ">
+            <br>
+            <div class="model bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
+
+                <button onclick="sindh(); " type="button " class="btn btn-dark modelsbtn img-fluid ">Sindh Cases</button>
+                <button onclick="punjab(); " type="button " class="btn btn-dark modelsbtn ">Punjab Cases</button>
+                <button onclick="isb(); " type="button " class="btn btn-dark modelsbtn ">Islamabad Cases</button>
+                <button onclick="kpk(); " type="button " class="btn btn-dark modelsbtn ">KPK Cases</button>
+                <button onclick="bal(); " type="button " class="btn btn-dark modelsbtn ">Baluchistan</button>
+                <button onclick="ajk(); " type="button " class="btn btn-dark modelsbtn ">AJ Kashmir Cases</button>
+                <button onclick="gb(); " type="button " class="btn btn-dark modelsbtn ">Gilgit-Baltistan </button>
+                <br>
+
+                <img id="bigpic" align="center " margin-left="50px " src="{% static 'model/images/case_sin.png' %} " width=900px, height=350px>
+                <img id="bigpic" src="bigpic" style="display:none; " />
+                <img id="bigpic" src="bigpic" style="display:none; " />
+                <img id="bigpic" src="bigpic" style="display:none; " />
+                <img id="bigpic" src="bigpic" style="display:none; " />
+                <img id="bigpic" src="bigpic" style="display:none; " />
+                <img id="bigpic" src="bigpic" style="display:none; " />
+                <img id="bigpic" src="bigpic" style="display:none; " />
+
+                <a href="#! ">
+                    <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
+                </a>
+
+
+            </div>
+        </div>
+        <br>
+        <br>
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ " crossorigin="anonymous "></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js " integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js " integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/ " crossorigin="anonymous "></script>
+    -->
+</body>
+
+</html>
+
+<script>
+    function kpk() {
+        var pic = "{% static 'model/images/case_KPK.png' %} "
+        document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+        document.getElementById('bigpic').style.display = 'block';
+
+    }
+
+    function punjab() {
+        var pic = "{% static 'model/images/case_punj.png' %} "
+        document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+        document.getElementById('bigpic').style.display = 'block';
+
+    }
+
+    function sindh() {
+        var pic = "{% static 'model/images/case_sin.png' %} "
+        document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+        document.getElementById('bigpic').style.display = 'block';
+
+    }
+
+    function gb() {
+        var pic = "{% static 'model/images/case_GB.png' %} "
+        document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+        document.getElementById('bigpic').style.display = 'block';
+
+    }
+
+    function isb() {
+        var pic = "{% static 'model/images/case_Isb.png' %} "
+        document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+        document.getElementById('bigpic').style.display = 'block';
+
+    }
+
+    function ajk() {
+        var pic = "{% static 'model/images/case_ajk.png' %} "
+        document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+        document.getElementById('bigpic').style.display = 'block';
+
+    }
+
+    function bal() {
+        var pic = "{% static 'model/images/case_BAL.png' %} "
+        document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+        document.getElementById('bigpic').style.display = 'block';
+
+    }
+</script>

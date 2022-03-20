@@ -1,0 +1,9 @@
+XGBoost
+J = number of nodes in trees
+M =  number of trees not greater then 8 b/c of overfitting
+Parameters are three
+General which booster are you applying tree or linear
+Booster depend on which booster which you have chosen
+Task
+
+feature selection cyclic, shuffle, random, greedy and thrifty
